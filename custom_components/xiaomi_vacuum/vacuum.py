@@ -57,7 +57,7 @@ ATTR_ZONE_ARRAY = "zone"
 ATTR_ZONE_REPEATER = "repeats"
 
 SERVICE_CLEAN_ZONE = "vacuum_clean_zone"
-SERVICE_SET_BRUSH_SPEED = "vacuum_set_brush_speed"
+SERVICE_SET_BRUSH_SPEED = "set_brush_speed"
 
 SUPPORT_XIAOMI = (
     SUPPORT_STATE
