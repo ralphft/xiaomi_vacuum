@@ -10,3 +10,13 @@ clean_zone:
     repeats:
       description: Number of cleaning repeats for each zone between 1 and 3. Does nothing at the moment!.
       example: "1"
+
+set_brush_speed:
+  description: Set the speed of the fan.
+  fields:
+    entity_id:
+      description: Name of the vacuum entity.
+      example: "vacuum.xiaomi_vacuum_cleaner"
+    fan_speed:
+      description: A number between 0 and 3 giving the speed of the fan.
+      example: "1"

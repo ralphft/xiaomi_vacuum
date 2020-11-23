@@ -57,6 +57,7 @@ ATTR_ZONE_ARRAY = "zone"
 ATTR_ZONE_REPEATER = "repeats"
 
 SERVICE_CLEAN_ZONE = "vacuum_clean_zone"
+SERVICE_SET_BRUSH_SPEED = "vacuum_set_brush_speed"
 
 SUPPORT_XIAOMI = (
     SUPPORT_STATE
@@ -147,6 +148,16 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
             ),
         },
         MiroboVacuum.async_clean_zone.__name__,
+    )
+
+    platform.async_register_entity_service(
+        SERVICE_SET_BRUSH_SPEED,
+        {
+            vol.Required(ATTR_FAN_SPEED): vol.All(
+                vol.Coerce(int), vol.Clamp(min=0, max=3)
+            ),
+        },
+        MiroboVacuum.async_set_fan_speed.__name__,
     )
 
 
