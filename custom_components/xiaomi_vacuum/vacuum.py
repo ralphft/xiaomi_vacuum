@@ -58,6 +58,11 @@ ATTR_ZONE_REPEATER = "repeats"
 
 SERVICE_CLEAN_ZONE = "vacuum_clean_zone"
 SERVICE_SET_BRUSH_SPEED = "set_brush_speed"
+SERVICE_LOCATE = "set_brush_speed"
+SERVICE_START = "start_cleaning"
+SERVICE_STOP = "stop_cleaning"
+SERVICE_PAUSE = "pause_cleaning"
+SERVICE_RETURN_TO_BASE = "return_to_base"
 
 SUPPORT_XIAOMI = (
     SUPPORT_STATE
@@ -160,6 +165,35 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
         MiroboVacuum.async_set_fan_speed.__name__,
     )
 
+    platform.async_register_entity_service(
+        SERVICE_LOCATE,
+        {},
+        MiroboVacuum.async_locate.__name__,
+    )
+
+    platform.async_register_entity_service(
+        SERVICE_START,
+        {},
+        MiroboVacuum.async_start.__name__,
+    )
+
+    platform.async_register_entity_service(
+        SERVICE_STOP,
+        {},
+        MiroboVacuum.async_stop.__name__,
+    )
+
+    platform.async_register_entity_service(
+        SERVICE_PAUSE,
+        {},
+        MiroboVacuum.async_pause.__name__,
+    )
+
+    platform.async_register_entity_service(
+        SERVICE_RETURN_TO_BASE,
+        {},
+        MiroboVacuum.async_return_to_base.__name__,
+    )
 
 class MiroboVacuum(StateVacuumEntity):
     """Representation of a Xiaomi Vacuum cleaner robot."""
