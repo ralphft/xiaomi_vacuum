@@ -3,5 +3,6 @@
   "name": "Xiaomi Vacuum",
   "documentation": "Add some simple features",
   "requirements": [],
-  "codeowners": ["@ralphft"]
+  "codeowners": ["@ralphft"],
+  "version": "1.0"
 }
