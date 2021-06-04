@@ -162,7 +162,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
         MiroboVacuum.async_clean_zone.__name__,
     )
 
-	platform.async_register_entity_service(
+    platform.async_register_entity_service(
         SERVICE_WATER_LEVEL,
         {
             vol.Required(ATTR_WATER_LEVEL): cv.string,
@@ -399,7 +399,7 @@ class MiroboVacuum(StateVacuumEntity):
         await self._try_command(
             "Unable to set fan speed: %s", self._vacuum.set_fan_speed, fan_speed)
 
-	async def async_set_water_level(self, water_level, **kwargs):
+    async def async_set_water_level(self, water_level, **kwargs):
         """Set water level."""
         if water_level in self._water_level_reverse:
             water_level = self._water_level_reverse[water_level]
